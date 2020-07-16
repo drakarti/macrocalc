@@ -11,11 +11,11 @@ if __name__ == "__main__":
     age = int(input("Enter Age in years: "))
     inches = (height1 * 12) + height2
 
-    if sex.lower() == 'm':
+    if sex == 'm':
         print("your basal metabolic rate is", (Bmr.male_bmr(weight, inches, age)))
         Bmr.male_menu()
 
-    elif sex.lower() == 'f':
+    elif sex == 'f':
         print("Your basal metabolic rate is", (Bmr.female_bmr(weight, inches, age)))
         Bmr.female_menu()
     else:
