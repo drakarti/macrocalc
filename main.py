@@ -1,8 +1,8 @@
 # imports
 import Bmr
-import Macro
+from Macro import UserMacros
 
-# main
+# main, program starts here
 if __name__ == "__main__":
     height1 = int(input("Enter Height Feet: "))
     height2 = int(input("Enter Height Inches: "))
@@ -11,17 +11,19 @@ if __name__ == "__main__":
     age = int(input("Enter Age in years: "))
     inches = (height1 * 12) + height2
 
+    # calculate bmr based on sex
+    user_bmr = None
     if sex == 'm':
-        print("your basal metabolic rate is", (Bmr.male_bmr(weight, inches, age)))
-        Bmr.male_menu()
-
+        user_bmr = Bmr.male_bmr(weight, inches, age)
     elif sex == 'f':
-        print("Your basal metabolic rate is", (Bmr.female_bmr(weight, inches, age)))
-        Bmr.female_menu()
+        user_bmr = Bmr.male_bmr(weight, inches, age)
     else:
         print("enter a valid value m for male f for female")
 
-    # I assume after this first part is where you want to start using all the
+    # get maintenance calories
+    Bmr.maintenance_calories(user_bmr)
+
+    # I assume after this first part is where you want to start using all the Macros
     # functions that you created. So if this is the wrong spot you can move it around
-    userMacros = Macro.UserMacros(Bmr.male_bmr())
+    userMacros = UserMacros(user_bmr)
     userMacros.command_prompt()
