@@ -20,3 +20,8 @@ if __name__ == "__main__":
         Bmr.female_menu()
     else:
         print("enter a valid value m for male f for female")
+
+    # I assume after this first part is where you want to start using all the
+    # functions that you created. So if this is the wrong spot you can move it around
+    userMacros = Macro.UserMacros(Bmr.male_bmr())
+    userMacros.command_prompt()
