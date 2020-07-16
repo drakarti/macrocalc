@@ -1,11 +1,3 @@
-height1 = int(input("Enter Height Feet: "))
-height2 = int(input("Enter Height Inches: "))
-weight = int(input("Enter Weight in pounds: "))
-sex = input("Enter Male (M) or Female (F): ").lower().strip()
-age = int(input("Enter Age in years: "))
-inches = (height1 * 12) + height2
-
-
 def male_bmr():
     return 66 + (6.2 * weight) + (12.7 * inches) - (6.76 * age)
 
@@ -62,12 +54,20 @@ def female_menu():
         print("Your maintenance calories are", (female_bmr()*1.9))
 
 
-if sex.lower() == 'm':
-    print("your basal metabolic rate is", (male_bmr()))
-    male_menu()
+if __name__ == "__main__":
+    height1 = int(input("Enter Height Feet: "))
+    height2 = int(input("Enter Height Inches: "))
+    weight = int(input("Enter Weight in pounds: "))
+    sex = input("Enter Male (M) or Female (F): ").lower().strip()
+    age = int(input("Enter Age in years: "))
+    inches = (height1 * 12) + height2
 
-elif sex.lower() == 'f':
-    print("Your basal metabolic rate is", (female_bmr()))
-    female_menu()
-else:
-    print("enter a valid value m for male f for female")
+    if sex.lower() == 'm':
+        print("your basal metabolic rate is", (male_bmr()))
+        male_menu()
+
+    elif sex.lower() == 'f':
+        print("Your basal metabolic rate is", (female_bmr()))
+        female_menu()
+    else:
+        print("enter a valid value m for male f for female")
