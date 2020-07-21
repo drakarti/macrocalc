@@ -1,73 +1,27 @@
-height1 = int(input("Enter Height Feet: "))
-height2 = int(input("Enter Height Inches: "))
-weight = int(input("Enter Weight in pounds: "))
-sex = input("Enter Male (M) or Female (F): ").lower().strip()
-age = int(input("Enter Age in years: "))
-inches = (height1 * 12) + height2
-
-
-def male_bmr():
+def male_bmr(weight, inches, age):
     return 66 + (6.2 * weight) + (12.7 * inches) - (6.76 * age)
 
 
-def female_bmr():
+def female_bmr(weight, inches, age):
     return 655 + (4.3 * weight) + (4.7 * inches) - (4.7 * age)
 
 
-def male_menu():
-    print("What is your activity level?, \n"
-          " 1. sedentary \n"
-          " 2. lightly active \n"
-          " 3. moderately active \n"
-          " 4. very active \n "
-          "5. extremely active ")
-    choice = input()
-    if choice == "1":
-        print("Your maintenance calories are", round(male_bmr()*1.2))
-
-    if choice == "2":
-        print("Your maintenance calories are", round(male_bmr()*1.375))
-
-    if choice == "3":
-        print("Your maintenance calories are", round(male_bmr()*1.55))
-
-    if choice == "4":
-        print("Your maintenance calories are", round(male_bmr()*1.725))
-
-    if choice == "5":
-        print("Your maintenance calories are", round(male_bmr()*1.9))
-
-
-def female_menu():
-    print("What is your activity level?, \n"
-          " 1. sedentary \n"
-          " 2. lightly active \n"
-          " 3. moderately active \n"
-          " 4. very active \n "
-          "5. extremely active ")
-    choice = input()
-    if choice == "1":
-        print("Your maintenance calories are", (female_bmr()*1.2))
-
-    if choice == "2":
-        print("Your maintenance calories are", (male_bmr()*1.375))
-
-    if choice == "3":
-        print("Your maintenance calories are", (female_bmr()*1.55))
-
-    if choice == "4":
-        print("Your maintenance calories are", (female_bmr()*1.725))
-
-    if choice == "5":
-        print("Your maintenance calories are", (female_bmr()*1.9))
-
-
-if sex.lower() == 'm':
-    print("your basal metabolic rate is", (male_bmr()))
-    male_menu()
-
-elif sex.lower() == 'f':
-    print("Your basal metabolic rate is", (female_bmr()))
-    female_menu()
-else:
-    print("enter a valid value m for male f for female")
+def maintenance_calories(user_bmr):
+    choice = int(input("What is your activity level?\n"
+                       "\t1. sedentary\n"
+                       "\t2. lightly active\n"
+                       "\t3. moderately active\n"
+                       "\t4. very active\n "
+                       "\t5. extremely active\n"))
+    if choice == 1:
+        print("Your maintenance calories are", round(user_bmr * 1.2))
+    elif choice == 2:
+        print("Your maintenance calories are", round(user_bmr * 1.375))
+    elif choice == 3:
+        print("Your maintenance calories are", round(user_bmr * 1.55))
+    elif choice == 4:
+        print("Your maintenance calories are", round(user_bmr * 1.725))
+    elif choice == 5:
+        print("Your maintenance calories are", round(user_bmr * 1.9))
+    else:
+        print("error")
