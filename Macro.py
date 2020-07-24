@@ -16,9 +16,9 @@ class UserMacros:
     # this is mainly just a syntax thing, when you use the function in the
     # main.py you don't need to pass a 'self.' or anything like that, its kinda strange
     def command_prompt(self):
-        print("Your daily grams of fat", self.fats_grams())
-        print("Your daily grams of protein", self.protein_grams())
-        print("Your daily grams of carbohydrates", self.carbohydrates_grams())
+        print("Your daily grams of fat", round(self.fats_grams()))
+        print("Your daily grams of protein", round(self.protein_grams()))
+        print("Your daily grams of carbohydrates", round(self.carbohydrates_grams()))
 
     def protein_calories(self):
         return self.daily_calories * .3
